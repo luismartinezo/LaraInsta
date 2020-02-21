@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Image; //Utilizamos o importamos el objeto image
 
 class HomeController extends Controller
 {
@@ -23,6 +24,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        // Traemos todas las imagenes descendentemente
+        $images = Image::orderBy('id', 'desc')->paginate(5);
+
+        return view('home', [
+            'images' => $images
+        ]);
     }
 }

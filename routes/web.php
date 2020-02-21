@@ -46,3 +46,4 @@ Route::post('/user/update', 'UserController@update')->name('user.update');
 Route::post('/image/save', 'ImageController@save')->name('image.save');
 Route::get('/user/avatar/{filename}', 'UserController@getImage')->name('user.avatar');
 Route::get('/subir-imagen', 'ImageController@create')->name('image.create');
+Route::get('/image/file/{filename}', 'ImageController@getImage')->name('image.file');
