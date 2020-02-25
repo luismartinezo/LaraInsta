@@ -68,9 +68,10 @@ class UserController extends Controller
         // var_dump($id,$name,$surname);
         // exit();
     }
-    public function getImage($filename)
+    public function getAvatar($filename)
     {
        $file = Storage::disk('users')->get($filename);
        return new Response($file, 200);
+       
     }
 }
