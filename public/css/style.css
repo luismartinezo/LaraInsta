@@ -63,6 +63,33 @@ form .avatar{
     width: 20px;
 }
 
-.pub_image .comments{
-    padding: 30px;
+.pub_image_detail .comments{
+    padding: 20px;
+}
+
+.number_like{
+    color: gray;
+    font-size: 11px;
+}
+
+.profile-user{
+    height: 200px;
+    margin-bottom: 40px;
+}
+.profile-user .container-avatar{
+    width: 200px;
+    height: 200px;
+    border-radius: 900px;
+    overflow: hidden;
+    float: left;
+}
+
+.profile-user .container-avatar img{
+    height: 100%;
+}
+
+.profile-user .user-info{
+    float: left;
+    padding-left: 30px;
+    padding-top: 20px;
 }

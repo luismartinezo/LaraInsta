@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/main.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -57,6 +58,9 @@
                         <li class="nav-item">
                             <a href="{{ route('image.create') }}" class="nav-link">Subir Imagen</a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('likes') }}" class="nav-link">Favoritos</a>
+                        </li>
                         <li>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </li>
@@ -72,7 +76,7 @@
                                 <a class="dropdown-item" href="{{ route('config') }}">
                                         Configuracion
                                      </a>
-                                    <a class="dropdown-item" href="">
+                                    <a class="dropdown-item" href="{{ route('perfil', ['id' => Auth::user()->id])}}">
                                        Mi Perfil
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"

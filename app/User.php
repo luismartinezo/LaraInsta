@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Image;
 
 class User extends Authenticatable
 {
@@ -29,7 +30,7 @@ class User extends Authenticatable
     ];
 
     // Para poder listar los usuarios por sus imagen
-    public function image()
+    public function images()
     {
         return $this->hasMany('App\Image');
     }

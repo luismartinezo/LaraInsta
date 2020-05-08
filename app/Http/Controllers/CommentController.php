@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Comment;
 
 class CommentController extends Controller
 {
@@ -20,9 +21,48 @@ class CommentController extends Controller
         ]);
 
         // Recoger datos del formulario
+        $user = \Auth::user();
         $image_id = $request->input('image_id');
         $content = $request->input('content');
+        
         // var_dump($content);
         // exit;
+
+        // Asisgno los valores a mi nuevo objetos
+        $comment = new Comment();
+        $comment->user_id = $user->id;
+        $comment->image_id = $image_id;
+        $comment->content = $content;
+
+        $comment->save();
+
+        return redirect()->route('image.detail', ['id' => $image_id])
+                        ->with([
+                            'message' => 'Has publicado tu comentario correctamente'
+                        ]);
+    }   
+
+    public function delete($id)
+    {
+        // Conseguir datos de usuario logueado
+        $user = \Auth::user();
+
+        // Conseguir objeto del comentario
+        $comment = Comment::find($id);
+
+        // Comprobar si soy el dueño del comentario o de la publicacion
+        if ($user && ($comment->user_id == $user->id || $comment->image->user_id == $user->id)) {
+            $comment->delete();
+
+            return redirect()->route('image.detail', ['id' => $comment->image->id])
+                            ->with([
+                                'message' => 'Comentario eliminado correctamente'
+                            ]);
+        }else {
+            return redirect()->route('image.detail', ['id' => $comment->image->id])
+                            ->with([
+                                'message' => 'El comentario no se elimino'
+                            ]);
+        }
     }
 }
