@@ -1,11 +1,12 @@
 ## Sobre LaraInsta
 
-Aplicacion hecha en [Laravel 6.15.1](https://laravel.com/docs/) con las funciones de Instagran, cargar imagenes al perfil,
+Aplicacion hecha en [Laravel 6.15.1](https://laravel.com/docs/) basada en la red social Instagram, esta permite cargar imagenes para mostrar,
+escribir comentarios sobre las mismas, configurar el perfil de usuario entre otros,
 dar gustar y no gustar a una imagen, subir imagenes al perfil entre otros.
 
 ## Instalacion y Configuracion
 
--   Clonar o descargar proyecto, para clonar ejecutamos el comando [`git clone`](https://github.com/luismartinezo/LaraInsta.git)
+-   Clonar o descargar proyecto, para clonar ejecutamos el comando `git clone https://github.com/luismartinezo/LaraInsta.git`
 -   Luego accedemos al directorio del proyecto y ejecutamos el comando `composer install` para instalar dependencias.
 -   Creamos en la raiz del proyecto un archivo llamado `.env` y copiamos la informacion del archivo `.env.example` tambien en la raiz del proyecto.
 -   Para generar una nueva llave de la Aplicacion con el comando `php artisan key:generate` la crea en el archivo .env
